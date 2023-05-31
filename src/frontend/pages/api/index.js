@@ -11,7 +11,9 @@ export default function handler(req, res) {
   }
   if (req.method === 'GET') {
     console.log("GET");
-    return res.status(200).json({ message: "[HOME] Hello [GET] from the API!" });
+    console.log(req.headers);
+    if (req.headers["content-type"] == "application/json") return res.status(200).json({ message: "[HOME] Hello [GET] from the API!" });
+    else return res.status(200).send("[HOME] Hello [GET] from the API!");
   }
   return res.status(500).json({ error: "Reached the end of the API method with no response." });
 }
