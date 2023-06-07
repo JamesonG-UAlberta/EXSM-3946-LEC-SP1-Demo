@@ -48,7 +48,12 @@ export async function getStaticProps() {
     return { 
         props: { 
             weather: weather.data
-        } 
+        },
+        // This tells next.js to revalidate the page every 10 seconds.
+        // This means that on the first request after 10 seconds, the page will be regenerated.
+        // While the page is regenerated, users will still get the old page.
+        // Once completed the new page is served automatically.
+        revalidate: 10
     }
     // In static generation this runs only once, when we run next build (yarn build).
     // Then, when we run next start (yarn start), the page is served from the build.
