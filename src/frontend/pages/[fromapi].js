@@ -54,3 +54,9 @@ export async function getStaticProps() {
     // Then, when we run next start (yarn start), the page is served from the build.
     // This means the data will be constant, until the project is rebuilt.
 }
+// This allows you to statically generate a dynamic path.
+export async function getStaticPaths() {
+    // This creates a different page for each instance of the object in paths. 
+    const paths = ["test1", "test2", "test3"].map((pathName) => { return {params: {fromapi: pathName}}});
+    return {paths, fallback: false};
+}
