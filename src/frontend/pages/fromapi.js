@@ -33,8 +33,8 @@ export default function Home(props) {
     </>
   )
 }
-// The presence of this function converts this component (page) to server-side rendering.
-export async function getServerSideProps() {
+// The presence of this function converts this component (page) to static generation.
+export async function getStaticProps() {
     // Server Data Fetching
     // Because the server doesn't have SSL certificates, we need to disable SSL verification.
     const failSafeAxios = axios.create({
@@ -50,4 +50,7 @@ export async function getServerSideProps() {
             weather: weather.data
         } 
     }
+    // In static generation this runs only once, when we run next build (yarn build).
+    // Then, when we run next start (yarn start), the page is served from the build.
+    // This means the data will be constant, until the project is rebuilt.
 }
