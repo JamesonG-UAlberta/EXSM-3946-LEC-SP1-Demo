@@ -59,7 +59,9 @@ export default function SWR(props) {
     // In this case we are setting errorRetryCount to 5, which means no more than 5 retries will be attempted.
     errorRetryCount: 5,
     
-    fallbackData: props.initialData
+    fallbackData: props.initialData,
+    
+    revalidateIfStale: false
   });
 
   return (
@@ -93,7 +95,7 @@ export default function SWR(props) {
     </>
   );
 }
-export async function getServerSideProps() {
+export async function getStaticProps() {
   return {
     props: {
       initialData: await fetcher()
