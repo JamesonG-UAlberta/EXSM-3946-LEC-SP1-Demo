@@ -1,4 +1,10 @@
+"use client";
+
 import {Typography} from '@mui/material';
+
+export const metadata = {
+    title: 'Example'
+  }
 
 export default function Example(props) {
     return <>
@@ -8,3 +14,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porttitor laoreet 
 
     </>
 } 
+
+export async function getStaticProps() {
+    return { props: {} }
+}
