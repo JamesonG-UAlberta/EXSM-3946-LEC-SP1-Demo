@@ -2,10 +2,6 @@
 
 import {Typography} from '@mui/material';
 
-export const metadata = {
-    title: 'Example'
-  }
-
 export default function Example(props) {
     return <>
       <Typography variant="h1" align="center" component="h2">Example Sub-Page</Typography>
