@@ -14,7 +14,3 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porttitor laoreet 
 
     </>
 } 
-
-export async function getStaticProps() {
-    return { props: {} }
-}
